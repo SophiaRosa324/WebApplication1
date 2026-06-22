@@ -1,0 +1,53 @@
+﻿@model WebApplication1.Models.Usuarios
+
+@{
+    ViewBag.Title = "Detalhes do Usuário";
+}
+
+<h2>Detalhes do Usuário</h2>
+
+<div>
+    <h4>Dados completos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_usuario)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.id_usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.telefone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data_cadastro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.data_cadastro)
+        </dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id_usuario }) |
+    @Html.ActionLink("Voltar para lista", "Index")
+</p>

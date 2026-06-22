@@ -1,0 +1,60 @@
+﻿@model WebApplication1.Models.Usuarios
+
+@{
+    ViewBag.Title = "Excluir Usuário";
+}
+
+<h2>Excluir Usuário</h2>
+
+<h3>Você tem certeza que deseja excluir este usuário?</h3>
+
+<div>
+    <h4>Dados do usuário</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_usuario)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.id_usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.telefone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data_cadastro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.data_cadastro)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-danger" />
+            @Html.ActionLink("Voltar para lista", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>
