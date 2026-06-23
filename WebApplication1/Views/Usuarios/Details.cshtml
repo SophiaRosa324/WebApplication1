@@ -48,6 +48,6 @@
 </div>
 
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.id_usuario }) |
-    @Html.ActionLink("Voltar para lista", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id_usuario } , new { @class = "btn btn-sm btn-warning" }) |
+    @Html.ActionLink("Voltar para lista", "Index" ,null, new { @class = "btn btn-sm btn-info" })
 </p>

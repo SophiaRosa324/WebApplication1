@@ -58,4 +58,23 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+    $(document).ready(function () {
+
+                $('#telefone').on('input', function () {
+
+                    let value = $(this).val();
+
+                    value = value.replace(/\D/g, '');
+
+                    if (value.length <= 10) {
+                        value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+                    } else {
+                        value = value.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+                    }
+
+                    $(this).val(value);
+                });
+
+            });</script>
 }

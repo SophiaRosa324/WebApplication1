@@ -1,9 +1,53 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Sobre";
 }
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
 
-    <p>Use this area to provide additional information.</p>
+<main class="container mt-4">
+
+    <div class="page-header mb-4">
+        <h2 class="text-primary">Sobre o sistema</h2>
+        <p class="text-muted">Conheça mais sobre este aplicativo</p>
+    </div>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h4 class="card-title">O que é este sistema?</h4>
+            <p class="card-text">
+                Este é um sistema web desenvolvido em ASP.NET MVC para gerenciamento de usuários,
+                com foco em simplicidade, organização e escalabilidade.
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-3">
+                <div class="card-body text-center">
+                    <h5>Cadastro</h5>
+                    <p class="text-muted">Gerencie usuários de forma simples</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-3">
+                <div class="card-body text-center">
+                    <h5>Organização</h5>
+                    <p class="text-muted">Estrutura clara e objetiva</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-3">
+                <div class="card-body text-center">
+                    <h5>Segurança</h5>
+                    <p class="text-muted">Controle de acesso e validações</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 </main>

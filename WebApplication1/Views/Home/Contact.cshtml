@@ -1,19 +1,56 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Contato";
 }
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
 
-    <address>
-        One Microsoft Way<br />
-        Redmond, WA 98052-6399<br />
-        <abbr title="Phone">P:</abbr>
-        425.555.0100
-    </address>
+<main class="container mt-4">
 
-    <address>
-        <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-    </address>
+    <div class="page-header mb-4">
+        <h2 class="text-primary">Contato</h2>
+        <p class="text-muted">Entre em contato conosco pelos canais abaixo</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+                    <h4 class="card-title">Endereço</h4>
+                    <p class="card-text">
+                        Rua Exemplo, 123<br />
+                        Sorocaba - SP<br />
+                        Brasil
+                    </p>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+                    <h4 class="card-title">Telefone</h4>
+                    <p class="card-text">
+                        <abbr title="Telefone">P:</abbr> (15) 99999-9999
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+                    <h4 class="card-title">E-mails</h4>
+
+                    <p>
+                        <strong>Suporte:</strong><br />
+                        <a href="mailto:suporte@empresa.com">suporte@empresa.com</a>
+                    </p>
+
+                    <p>
+                        <strong>Comercial:</strong><br />
+                        <a href="mailto:comercial@empresa.com">comercial@empresa.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 </main>

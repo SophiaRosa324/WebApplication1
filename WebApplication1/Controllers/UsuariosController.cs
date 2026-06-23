@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -73,17 +74,76 @@ namespace WebApplication1.Controllers
         }
 
 
-        // POST: Usuarios/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_usuario,nome,email,senha,telefone,data_cadastro")] Usuarios usuario)
+        public ActionResult Edit([Bind(Include = "id_usuario,nome,email,senha,telefone")] Usuarios usuario)
         {
+            // Não exigir senha durante o Edit — remove validação para o campo senha
+            ModelState.Remove("senha");
+
             if (ModelState.IsValid)
             {
-                db.Entry(usuario).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    var usuarioDb = db.Usuarios.Find(usuario.id_usuario);
+                    if (usuarioDb == null)
+                    {
+                        return HttpNotFound();
+                    }
+
+                    // Atualiza apenas os campos editáveis (não tocar em data_cadastro)
+                    usuarioDb.nome = usuario.nome;
+                    usuarioDb.email = usuario.email;
+                    usuarioDb.telefone = usuario.telefone;
+
+                    // Se o usuário informou uma senha, atualiza; caso contrário, mantém a existente
+                    if (!string.IsNullOrWhiteSpace(usuario.senha))
+                    {
+                        usuarioDb.senha = usuario.senha;
+                    }
+
+                    db.Entry(usuarioDb).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (var eve in ex.EntityValidationErrors)
+                    {
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            ModelState.AddModelError(ve.PropertyName, ve.ErrorMessage);
+                        }
+                    }
+
+                    try
+                    {
+                        var fullMessage = string.Join(" | ",
+                            ex.EntityValidationErrors.SelectMany(eve =>
+                                eve.ValidationErrors.Select(ve => $"{ve.PropertyName}: {ve.ErrorMessage}")));
+                        System.Diagnostics.Debug.WriteLine("DbEntityValidationException: " + fullMessage);
+                    }
+                    catch
+                    {
+                        // ignore
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                    System.Diagnostics.Debug.WriteLine("Exception ao salvar: " + ex);
+                }
             }
+
+            // Em caso de erro de validação, recarrega o usuário do banco para evitar DateTime.MinValue em data_cadastro
+            var usuarioOriginal = db.Usuarios.Find(usuario.id_usuario);
+            if (usuarioOriginal != null)
+            {
+                // não enviar a senha para a view
+                usuarioOriginal.senha = null;
+                return View(usuarioOriginal);
+            }
+
             return View(usuario);
         }
 

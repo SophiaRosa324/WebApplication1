@@ -18,3 +18,104 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* Fundo geral */
+body {
+    background-color: #dfe7ef;
+    color: #000;
+    font-family: Arial, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar azul escura */
+.navbar-custom {
+    background-color: #0d3b66;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Logo */
+.navbar-brand {
+    font-weight: 600;
+    color: #ffffff !important;
+}
+
+/* Links da navbar */
+.nav-link {
+    color: #dfe7ef !important;
+    transition: 0.3s;
+}
+
+    .nav-link:hover {
+        color: #ffffff !important;
+    }
+
+/* Botões neutros */
+.btn-primary,
+.btn-success,
+.btn-info {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    color: #ffffff !important;
+}
+
+    .btn-primary:hover,
+    .btn-success:hover,
+    .btn-info:hover{
+        background-color: #5a6268 !important;
+        border-color: #545b62 !important;
+    }
+
+/* Botão secundário */
+.btn-secondary {
+    background-color: #245685 !important;
+    border-color: #245685 !important;
+    color: white !important;
+}
+
+    .btn-secondary:hover {
+        background-color: #0d3b66 !important;
+        border-color: #0d3b66 !important;
+    }
+
+.btn-default,
+.btn-warning {
+    background: #245685 !important;
+    border-color: #245685 !important;
+    color: white !important;
+}
+
+    .btn-default:hover,
+    .btn-warning:hover {
+        background: #0d3b66 !important;
+        border-color: #0d3b66 !important;
+        color: white !important;
+    }
+
+/* Tabelas */
+.table {
+    background-color: #283e52 !important;
+}
+
+    .table thead {
+        background-color: #b6c4d1 !important;
+    }
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+}
+
+.card-title {
+    color: #0d3b66;
+}
+
+.page-header h2 {
+    font-weight: 600;
+}
+
+/* Rodapé */
+footer {
+    color: #6c757d !important;
+    text-align: center ;
+    padding: 15px 0;
+}
