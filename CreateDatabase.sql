@@ -1,0 +1,9 @@
+use LP2
+CREATE TABLE Usuarios(
+    id_usuario INT IDENTITY(1,1) PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    senha VARCHAR(255) NULL,
+    telefone VARCHAR(15) NOT NULL,
+    data_cadastro DATETIME NOT NULL DEFAULT GETDATE()
+);
